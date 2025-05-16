@@ -1,4 +1,3 @@
-import styles from "../../App.scss";
 import { Item } from "../portal/Item";
 
 export const Stories = () => {

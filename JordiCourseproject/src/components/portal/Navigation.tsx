@@ -1,10 +1,8 @@
-import styles from "../../App.scss";
-
 export const Navigation = () => {
 	return (
 		<div className="navigation_div1">
 			//logo
-			<img src="" alt="logo" />
+			<img src="/Logo.png" alt="logo" />
 			//navbuttons
 			<div className="navigation_div2">
 				<div className="navigation_div3">

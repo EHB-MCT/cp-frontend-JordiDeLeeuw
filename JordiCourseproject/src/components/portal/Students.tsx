@@ -1,4 +1,3 @@
-import styles from "../../App.scss";
 
 export const Students = () => {
 	return (

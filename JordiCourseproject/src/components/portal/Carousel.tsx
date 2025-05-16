@@ -1,6 +1,4 @@
-import styles from "../../App.scss";
 import { Item } from "../portal/Item";
-import reactlogo from "../../assets/react.svg"
 
 export const Carousel = () => {
 	return (
