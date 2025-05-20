@@ -6,24 +6,24 @@ const Scene2 = () => {
 	const sectionRef = useRef(null);
 	const audioRef = useRef<HTMLAudioElement>(null);
 
-	// Scroll control
+	//scroll control
 	const { scrollYProgress } = useScroll({
 		target: sectionRef,
 		offset: ["start end", "end start"],
 	});
 
-	// Floating animations
+	//floating animations
 	const floatX = useTransform(scrollYProgress, [0, 1], ["-10px", "10px"]);
 	const floatY = useTransform(scrollYProgress, [0, 1], ["10px", "-10px"]);
 	const rotate = useTransform(scrollYProgress, [0, 1], ["-100deg", "100deg"]);
 
-	// Play/pause audio based on scrollYProgress
+	//play/pause audio based on scrollYProgress
 	useEffect(() => {
 		const unsubscribe = scrollYProgress.on("change", (v) => {
 			const audio = audioRef.current;
 			if (!audio) return;
 
-			if (v >= 0.05 && v <= 0.8) {
+			if (v >= 0.05 && v <= 0.76) {
 				audio.play().catch(() => {});
 			} else {
 				audio.pause();
