@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/Navigation.scss";
 
 export const Navigation = () => {
@@ -6,6 +7,7 @@ export const Navigation = () => {
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const [activeTheme, setActiveTheme] = useState<string | null>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
+	const navigate = useNavigate();
 
 	const themes = ["ROMANTIEK", "AVONTUUR", "GOED VS KWAAD", "MAGIE"];
 
@@ -25,7 +27,7 @@ export const Navigation = () => {
 
 	return (
 		<div className="navigation_div1">
-			<img src="/Logo.png" alt="logo" />
+			<img src="/Logo.png" alt="logo" onClick={() => navigate("/")} />
 
 			<div className="navigation_div2">
 				<div className="navigation_div3">

@@ -1,0 +1,32 @@
+.scene1 {
+	height: 300vh; // gives space to scroll through
+	position: relative;
+
+	.scene-sticky {
+		position: sticky;
+		top: 0;
+		height: 100vh;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.background-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url("/scene1background.png");
+		background-size: cover;
+		background-position: center;
+		z-index: 0;
+	}
+	.moving-image {
+		position: absolute;
+		bottom: 5vh; // Position it near the bottom of the viewport
+		width: 13vw; // Smaller size
+		z-index: 1;
+		will-change: transform, opacity;
+		pointer-events: none;
+	}
+}
