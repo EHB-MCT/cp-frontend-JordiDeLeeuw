@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../styles/Navigation.scss";
+import "../../styles/portal/Navigation.scss";
 
 export const Navigation = () => {
 	const [isSearching, setIsSearching] = useState(false);

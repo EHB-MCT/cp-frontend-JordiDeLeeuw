@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import "../../styles/Scene1.scss";
+import "../../styles/fairytale/Scene1.scss";
 
 const Scene1 = () => {
 	const sectionRef = useRef(null);

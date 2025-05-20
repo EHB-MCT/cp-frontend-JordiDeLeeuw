@@ -23,8 +23,8 @@
 	}
 	.moving-image {
 		position: absolute;
-		bottom: 5vh; // Position it near the bottom of the viewport
-		width: 13vw; // Smaller size
+		bottom: 5vh; 
+		width: 13vw; 
 		z-index: 1;
 		will-change: transform, opacity;
 		pointer-events: none;

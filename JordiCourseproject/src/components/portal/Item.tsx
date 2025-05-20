@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "../../styles/Item.scss";
+import "../../styles/portal/Item.scss";
 
 export const Item = () => {
 	const navigate = useNavigate();
