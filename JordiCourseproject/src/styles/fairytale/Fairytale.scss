@@ -1,14 +1,14 @@
 .fairytale {
 	background: linear-gradient(to bottom, white, rgb(354, 252, 241) 1%);
-	position: relative; 
+	position: relative;
 
 	//center and size the name image
 	.name {
 		display: block;
 		width: 60vw;
 		height: auto;
-		margin: 0 auto 2vh auto;
-		// fade out the edges
+		margin: 0 auto -25vh auto;
+		//fade out the edges
 		-webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
 		-webkit-mask-composite: intersect;
 		mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
@@ -17,7 +17,7 @@
 
 	//optional: spacing for all playing cards
 	.playing-card {
-		margin: 3rem auto;
+		margin: auto;
 	}
 
 	.scroll-line {
@@ -25,8 +25,8 @@
 		top: 15vh; //start under the image
 		left: 50%;
 		width: 2px;
-		height: 100%;
-		background-color: #333;
+		height: 99.3%;
+		background-color: rgb(208, 175, 91);
 		transform: translateX(-50%);
 		transform-origin: top;
 		pointer-events: none;

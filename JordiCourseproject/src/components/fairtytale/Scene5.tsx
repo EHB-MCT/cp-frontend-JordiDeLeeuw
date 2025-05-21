@@ -7,15 +7,12 @@ const Scene5 = () => {
 	//references
 	const sectionRef = useRef(null);
 	const audioRef = useRef<HTMLAudioElement>(null);
+	const constraintsRef = useRef(null);
 
 	const { scrollYProgress } = useScroll({
 		target: sectionRef,
 		offset: ["start end", "end start"],
 	});
-
-	//map scrollYProgress to y and scale values
-	const y = useTransform(scrollYProgress, [0, 1], [-70, -220]);
-	const scale = useTransform(scrollYProgress, [0, 1], [1, 1.8]);
 
 	//play/pause audio based on scroll progress
 	useEffect(() => {
@@ -36,7 +33,7 @@ const Scene5 = () => {
 	const handleScrollTop = () => {
 		console.log;
 		("Scroll to top clicked");
-		window.scrollTo({ top: 0, behavior: "smooth" });
+		window.scrollTo({ top: 0, behavior: "instant" });
 	};
 
 	return (
@@ -48,14 +45,9 @@ const Scene5 = () => {
 					{/* image that scrolls u to top */}
 					<img src={`${base}door.png`} alt="Scroll to top" className="interactive-image doorbutton" onClick={handleScrollTop} />
 					{/* image that grows as you scroll */}
-					<motion.img
-						src={`${base}head.png`}
-						className="growing-image"
-						style={{
-							y, // adjust for growing effect
-							scale,
-						}}
-					/>
+					<div ref={constraintsRef} className="drag-area">
+						<motion.img src={`${base}head.png`} className="draggable-image" drag dragMomentum={false} dragConstraints={constraintsRef} />
+					</div>
 				</div>
 			</div>
 

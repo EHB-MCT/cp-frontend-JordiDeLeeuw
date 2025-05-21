@@ -14,8 +14,6 @@ const Scene2 = () => {
 	});
 
 	//floating animations
-	const floatX = useTransform(scrollYProgress, [0, 1], ["-10px", "10px"]);
-	const floatY = useTransform(scrollYProgress, [0, 1], ["10px", "-10px"]);
 	const rotate = useTransform(scrollYProgress, [0, 1], ["-100deg", "100deg"]);
 
 	//play/pause audio based on scrollYProgress
@@ -43,17 +41,17 @@ const Scene2 = () => {
 			<div className="scene-sticky">
 				<div className="background-image" />
 				<img src={`${base}fallingalice.png`} className="centerpiece" alt="falling alice" />
-				<motion.div className="floating-item item1" style={{ x: floatX, y: floatY, rotate }}>
+				<motion.div className="floating-item item1" style={{ rotate }}>
 					<img src={`${base}items1.png`} alt="Floating Item 1" />
 				</motion.div>
 
-				<motion.div className="floating-item item2" style={{ x: floatY, y: floatX, rotate }}>
+				<motion.div className="floating-item item2" style={{ rotate }}>
 					<img src={`${base}items2.png`} alt="Floating Item 2" />
 				</motion.div>
 			</div>
 
 			<audio ref={audioRef} loop preload="auto">
-				<source src={`${base}soundscene2.mp3`} type="audio/mpeg" />
+				<source src={`${base}soundscene2.mp3`} type="audio/mpeg" />{" "}
 			</audio>
 		</section>
 	);

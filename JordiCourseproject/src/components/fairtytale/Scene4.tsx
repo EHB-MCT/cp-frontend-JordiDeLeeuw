@@ -70,7 +70,8 @@ const Scene4 = () => {
 				<div className="model-overlay" onClick={() => setOrbitActive(true)}>
 					<Canvas>
 						<OrbitControls enableDamping enabled={orbitActive} enableZoom={false} />
-						<Environment preset="sunset" />
+						<Environment preset="forest" blur={100} />
+
 						<Model />
 					</Canvas>
 				</div>
@@ -87,7 +88,11 @@ const Scene4 = () => {
 //laadt en toont het .glb 3d model
 function Model() {
 	const { scene } = useGLTF(`${base}watch.glb`);
-	return <primitive object={scene} scale={5} position={[0, -1, 0]} />;
+	return (
+		<group position={[1.5, -0.5, 0]} rotation={[0, Math.PI, 0]}>
+			<primitive object={scene} scale={5} />
+		</group>
+	);
 }
 
 //preload het model zodat het sneller wordt geladen wanneer nodig

@@ -1,6 +1,13 @@
 .scene5 {
 	position: relative;
 	height: 300vh;
+	//fade top and bottom
+	-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%);
+	mask-image: linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%);
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
 
 	.scene-sticky {
 		position: sticky;
@@ -31,25 +38,26 @@
 	}
 
 	.interactive-image {
-		width: 200px;
 		transition: transform 0.3s;
 		cursor: pointer;
-
-		&:hover {
-			transform: scale(1.05);
-		}
-	}
-
-	.growing-image {
-		margin-left: -6.6vw; 
-	}
-
-	.doorbutton {
 		cursor: pointer;
 		z-index: 10;
 		position: absolute;
 		left: 11%;
 		top: 50%;
 		pointer-events: auto;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+	.drag-area {
+		position: relative;
+		width: 80%;
+		height: 200%;
+		.draggable-image {
+			margin-left: 35%;
+			margin-bottom: 25vh;
+		}
 	}
 }

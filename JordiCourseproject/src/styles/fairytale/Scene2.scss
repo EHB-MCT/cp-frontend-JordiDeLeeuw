@@ -1,6 +1,13 @@
 .scene2 {
 	position: relative;
 	height: 300vh;
+	//fade top and bottom
+	-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%);
+	mask-image: linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%);
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
 
 	.scene-sticky {
 		position: sticky;
@@ -29,23 +36,20 @@
 	.floating-item {
 		position: absolute;
 		width: 90vw;
-		left: 0%;
+		left: -3vw;
 		top: -10vh;
 		pointer-events: none;
 
-		//background-color: red;
-
-		// Optional transition smoothing
 		will-change: transform;
 	}
 
 	.item1 {
 		z-index: 2;
-		left: -2%;
+		//background-color: rgba(255, 0, 0, 0.3);
 	}
 
 	.item2 {
 		z-index: 0;
-		left: -5%;
+		//	background-color: rgba(255, 242, 0, 0.3);
 	}
 }

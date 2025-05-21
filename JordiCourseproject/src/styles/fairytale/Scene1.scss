@@ -1,6 +1,13 @@
 .scene1 {
 	height: 300vh; // gives space to scroll through
 	position: relative;
+	//fade top and bottom
+	-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%);
+	mask-image: linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%);
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
 
 	.scene-sticky {
 		position: sticky;

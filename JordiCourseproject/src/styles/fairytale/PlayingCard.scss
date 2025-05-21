@@ -1,12 +1,13 @@
 .playing-card {
 	background: rgb(354, 270, 271);
 	border: 0.3vh solid rgb(144, 127, 82);
-	border-radius: 1rem;
-	padding: 1.5rem;
+	border-radius: 2vw;
+	padding: 2vw;
 	margin: 50vh auto !important;
 	width: 80%;
-	max-width: 600px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	max-width: 50vw;
+	box-shadow: 1.5vh 1.5vh 2vh rgba(0, 0, 0, 0.1);
+
 	position: relative;
 	font-family: "Georgia", serif;
 	text-align: center;
@@ -18,13 +19,13 @@
 	}
 
 	.top {
-		top: 0.5rem;
-		left: 1rem;
+		top: 1vh;
+		left: 1vw;
 	}
 
 	.bottom {
-		bottom: 0.5rem;
-		right: 1rem;
+		bottom: 1vh;
+		right: 1vw;
 		transform: rotate(180deg);
 	}
 
@@ -32,6 +33,6 @@
 		color: #333;
 		font-size: 4vh;
 		line-height: 1.6;
-		padding-top: 1.5rem;
+		padding: 4vh 0vh;
 	}
 }
