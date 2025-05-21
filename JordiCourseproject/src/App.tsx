@@ -10,7 +10,7 @@ import { Navigation } from "./components/portal/Navigation";
 
 function App() {
 	return (
-		<Router>
+		<Router basename="/cp-frontend-JordiDeLeeuw">
 			<Navigation />
 
 			<Routes>
@@ -18,6 +18,7 @@ function App() {
 				<Route path="/about" element={<About />} />
 				<Route path="/fairytale" element={<Fairytale />} />
 			</Routes>
+
 			<Footer />
 		</Router>
 	);

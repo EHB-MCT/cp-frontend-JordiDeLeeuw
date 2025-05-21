@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { OrbitControls, useGLTF, Environment } from "@react-three/drei";
 import { useScroll } from "framer-motion";
 import "../../styles/fairytale/Scene4.scss";
 
 const Scene4 = () => {
 	//referentie naar het section element (voor scroll tracking)
 	const sectionRef = useRef(null);
+	<Environment preset="sunset" />;
 
 	//referentie naar het audio-element
 	const audioRef = useRef<HTMLAudioElement>(null);
@@ -68,9 +69,8 @@ const Scene4 = () => {
 			{showModel && (
 				<div className="model-overlay" onClick={() => setOrbitActive(true)}>
 					<Canvas>
-						<ambientLight intensity={0.5} />
-						<directionalLight intensity={2} position={[5, 10, 7.5]} />
 						<OrbitControls enableDamping enabled={orbitActive} enableZoom={false} />
+						<Environment preset="sunset" />
 						<Model />
 					</Canvas>
 				</div>

@@ -1,4 +1,4 @@
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import "../../styles/fairytale/Scene3.scss";
 
