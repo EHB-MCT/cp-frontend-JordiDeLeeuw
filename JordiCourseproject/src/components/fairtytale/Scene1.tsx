@@ -34,12 +34,12 @@ const Scene1 = () => {
 		<section className="scene scene1" ref={sectionRef}>
 			<div className="scene-sticky">
 				<div className="background-image" />
-				<motion.img src="/alicerunning.png" className="moving-image image1" style={{ x: x1, opacity }} />
-				<motion.img src="/runningbunny.png" className="moving-image image2" style={{ x: x2, opacity }} />
+				<motion.img src={`${import.meta.env.BASE_URL}alicerunning.png`} className="moving-image image1" style={{ x: x1, opacity }} />
+				<motion.img src={`${import.meta.env.BASE_URL}runningbunny.png`} className="moving-image image2" style={{ x: x2, opacity }} />
 			</div>
 
 			<audio ref={audioRef} loop preload="auto">
-				<source src="/teLaat.mp3" type="audio/mpeg" />
+				<source src={`${import.meta.env.BASE_URL}teLaat.mp3`} type="audio/mpeg" />
 			</audio>
 		</section>
 	);
