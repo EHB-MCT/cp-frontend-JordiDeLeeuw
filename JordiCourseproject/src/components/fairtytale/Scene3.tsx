@@ -1,6 +1,7 @@
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import "../../styles/fairytale/Scene3.scss";
+const base = import.meta.env.BASE_URL;
 
 const Scene3 = () => {
 	const sectionRef = useRef(null);
@@ -59,17 +60,17 @@ const Scene3 = () => {
 			<div className="scene-sticky">
 				<div className="background-image" />
 				<div className="content">
-					<img src="/alicestanding.png" alt="Alice" className="big-image" style={{ transform: `scale(${size})` }} />
+					<img src={`${base}alicestanding.png`} alt="Alice" className="big-image" style={{ transform: `scale(${size})` }} />
 
 					<div className="buttons">
-						<img src="/bottle.png" alt="Shrink" className="button button-shrink" onClick={shrink} />
-						<img src="/cake.png" alt="Grow" className="button button-grow" onClick={grow} />
+						<img src={`${base}bottle.png`} alt="Shrink" className="button button-shrink" onClick={shrink} />
+						<img src={`${base}cake.png`} alt="Grow" className="button button-grow" onClick={grow} />
 					</div>
 				</div>
 			</div>
 
 			<audio ref={audioRef} loop preload="auto">
-				<source src="/soundscene3.mp3" type="audio/mpeg" />
+				<source src={`${base}soundscene3.mp3`} type="audio/mpeg" />
 			</audio>
 		</section>
 	);

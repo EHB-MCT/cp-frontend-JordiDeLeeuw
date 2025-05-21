@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "../../styles/fairytale/Scene1.scss";
+const base = import.meta.env.BASE_URL;
 
 const Scene1 = () => {
 	const sectionRef = useRef(null);
@@ -34,8 +35,8 @@ const Scene1 = () => {
 		<section className="scene scene1" ref={sectionRef}>
 			<div className="scene-sticky">
 				<div className="background-image" />
-				<motion.img src={`${import.meta.env.BASE_URL}alicerunning.png`} className="moving-image image1" style={{ x: x1, opacity }} />
-				<motion.img src={`${import.meta.env.BASE_URL}runningbunny.png`} className="moving-image image2" style={{ x: x2, opacity }} />
+				<motion.img src={`${base}alicerunning.png`} className="moving-image image1" style={{ x: x1, opacity }} />
+				<motion.img src={`${base}runningbunny.png`} className="moving-image image2" style={{ x: x2, opacity }} />
 			</div>
 
 			<audio ref={audioRef} loop preload="auto">

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/portal/Navigation.scss";
+const base = import.meta.env.BASE_URL;
 
 export const Navigation = () => {
 	const [isSearching, setIsSearching] = useState(false);
@@ -27,8 +28,7 @@ export const Navigation = () => {
 
 	return (
 		<div className="navigation_div1">
-			<img src="/Logo.png" alt="logo" onClick={() => navigate("/")} />
-
+			<img src={`${base}Logo.png`} alt="logo" onClick={() => navigate("/")} />
 			<div className="navigation_div2">
 				<div className="navigation_div3">
 					{isSearching ? (
@@ -80,7 +80,7 @@ export const Navigation = () => {
 
 				{/* magnifying glass for search*/}
 				<button onClick={() => setIsSearching(!isSearching)}>
-					<img src="/magnefyingglass.png" alt="magnefyingglass" />
+					<img src={`${base}magnefyingglass.png`} alt="magnefyingglass" />
 				</button>
 			</div>
 		</div>

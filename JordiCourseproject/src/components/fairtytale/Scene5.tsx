@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "../../styles/fairytale/Scene5.scss";
+const base = import.meta.env.BASE_URL;
 
 const Scene5 = () => {
 	//references
@@ -45,11 +46,10 @@ const Scene5 = () => {
 				<div className="background-image" />
 				<div className="content">
 					{/* image that scrolls u to top */}
-					<img src="/door.png" alt="Scroll to top" className="interactive-image doorbutton" onClick={handleScrollTop} />
-
+					<img src={`${base}door.png`} alt="Scroll to top" className="interactive-image doorbutton" onClick={handleScrollTop} />
 					{/* image that grows as you scroll */}
 					<motion.img
-						src="/head.png"
+						src={`${base}head.png`}
 						className="growing-image"
 						style={{
 							y, // adjust for growing effect
@@ -61,7 +61,7 @@ const Scene5 = () => {
 
 			{/* audio element */}
 			<audio ref={audioRef} loop preload="auto">
-				<source src="/soundscene5.mp3" type="audio/mpeg" />
+				<source src={`${base}soundscene5.mp3`} type="audio/mpeg" />
 			</audio>
 		</section>
 	);

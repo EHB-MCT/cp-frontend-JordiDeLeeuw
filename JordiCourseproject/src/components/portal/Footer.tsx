@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../../styles/portal/Footer.scss";
+const base = import.meta.env.BASE_URL;
 
 export const Footer = () => {
 	const navigate = useNavigate();
@@ -10,7 +11,8 @@ export const Footer = () => {
 	return (
 		<div className="footer_div1">
 			{/* logo */}
-			<img src="/Logo.png" alt="logo" />
+
+			<img src={`${base}Logo.png`} alt="logo" />
 			{/*text and button */}
 			<div className="footer_div2">
 				<p>

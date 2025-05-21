@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Environment } from "@react-three/drei";
 import { useScroll } from "framer-motion";
 import "../../styles/fairytale/Scene4.scss";
+const base = import.meta.env.BASE_URL;
 
 const Scene4 = () => {
 	//referentie naar het section element (voor scroll tracking)
@@ -58,10 +59,9 @@ const Scene4 = () => {
 
 				<div className="content">
 					{/* afbeelding die langzaam zichtbaar wordt na klik */}
-					<img src="/cat.png" alt="Reveal" className="interactive-image fade-image" style={{ opacity: imageVisible ? 1 : 0.2 }} onClick={handleReveal} />
-
+					<img src={`${base}cat.png`} alt="Reveal" className="interactive-image fade-image" style={{ opacity: imageVisible ? 1 : 0.2 }} onClick={handleReveal} />
 					{/* knop om het 3d model te tonen of verbergen */}
-					<img src="/watch.png" alt="Show 3D" className="interactive-image model-trigger" onClick={toggleModel} />
+					<img src={`${base}watch.png`} alt="Show 3D" className="interactive-image model-trigger" onClick={toggleModel} />{" "}
 				</div>
 			</div>
 
@@ -78,7 +78,7 @@ const Scene4 = () => {
 
 			{/* audiobestand dat via scroll wordt bediend */}
 			<audio ref={audioRef} loop preload="auto">
-				<source src="/soundscene4.mp3" type="audio/mpeg" />
+				<source src={`${base}soundscene4.mp3`} type="audio/mpeg" />{" "}
 			</audio>
 		</section>
 	);
@@ -86,11 +86,10 @@ const Scene4 = () => {
 
 //laadt en toont het .glb 3d model
 function Model() {
-	const { scene } = useGLTF("/watch.glb");
+	const { scene } = useGLTF(`${base}watch.glb`);
 	return <primitive object={scene} scale={5} position={[0, -1, 0]} />;
 }
 
 //preload het model zodat het sneller wordt geladen wanneer nodig
-useGLTF.preload("/watch.glb");
-
+useGLTF.preload(`${base}watch.glb`);
 export default Scene4;
