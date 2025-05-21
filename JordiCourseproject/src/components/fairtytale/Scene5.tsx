@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import "../../styles/fairytale/Scene5.scss";
 const base = import.meta.env.BASE_URL;
 
@@ -7,6 +7,7 @@ const Scene5 = () => {
 	//references
 	const sectionRef = useRef(null);
 	const audioRef = useRef<HTMLAudioElement>(null);
+	//ref to the drag constraints
 	const constraintsRef = useRef(null);
 
 	const { scrollYProgress } = useScroll({
@@ -16,23 +17,21 @@ const Scene5 = () => {
 
 	//play/pause audio based on scroll progress
 	useEffect(() => {
-		const unsubscribe = scrollYProgress.on("change", (v) => {
+		const scrollAudioControl = scrollYProgress.on("change", (v) => {
 			const audio = audioRef.current;
 			if (!audio) return;
 
-			if (v >= 0.1 && v <= 0.75) {
+			if (v >= 0.25 && v <= 0.75) {
 				audio.play().catch(() => {});
 			} else {
 				audio.pause();
 			}
 		});
-		return unsubscribe;
+		return scrollAudioControl;
 	}, [scrollYProgress]);
 
 	//scroll to top when image clicked
 	const handleScrollTop = () => {
-		console.log;
-		("Scroll to top clicked");
 		window.scrollTo({ top: 0, behavior: "instant" });
 	};
 

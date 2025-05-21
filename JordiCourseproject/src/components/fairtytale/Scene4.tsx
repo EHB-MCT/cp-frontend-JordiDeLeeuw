@@ -1,56 +1,57 @@
 import { useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Environment } from "@react-three/drei";
-import { useScroll } from "framer-motion";
+import { useMotionValueEvent, useScroll } from "framer-motion";
 import "../../styles/fairytale/Scene4.scss";
 const base = import.meta.env.BASE_URL;
 
 const Scene4 = () => {
-	//referentie naar het section element (voor scroll tracking)
+	//ref to the entire section to track scroll position
 	const sectionRef = useRef(null);
-	<Environment preset="sunset" />;
 
-	//referentie naar het audio-element
+	//ref to the audio element to control playback based on scroll, this allows us to play/pause the audio based on scroll position
 	const audioRef = useRef<HTMLAudioElement>(null);
 
-	//bepaalt of orbit controls geactiveerd zijn na klik
+	//determines if orbit controls are activated after click
 	const [orbitActive, setOrbitActive] = useState(false);
 
-	//bepaalt of de afbeelding volledig zichtbaar is
+	//determines if the image is fully visible
 	const [imageVisible, setImageVisible] = useState(false);
 
-	//bepaalt of het 3d model getoond wordt
+	//determines if the 3d model is shown or hidden
 	const [showModel, setShowModel] = useState(false);
 
-	//framer-motion hook om scrollvoortgang te meten binnen dit section
+	//hook to track scroll progress relative to sectionRef
 	const { scrollYProgress } = useScroll({
 		target: sectionRef,
 		offset: ["start end", "end start"],
 	});
+	//toggle the visibiltiy of the image
+	const handleReveal = () => setImageVisible((prev) => !prev);
 
-	//speelt het audiobestand af zolang scrollYProgress zich binnen een bereik bevindt
+	//toggle the visibility of the 3d model
+	const toggleModel = () => {
+		setShowModel((prev) => !prev);
+	};
+
+	//play/pause audio based on scrollYProgress
 	useEffect(() => {
-		const unsubscribe = scrollYProgress.on("change", (v) => {
+		const scrollAudioControl = scrollYProgress.on("change", (v) => {
 			const audio = audioRef.current;
 			if (!audio) return;
 
-			if (v >= 0.1 && v <= 0.75) {
+			if (v >= 0.25 && v <= 0.75) {
 				audio.play().catch(() => {});
 			} else {
 				audio.pause();
 			}
 		});
-		//verwijdert de scroll listener wanneer component unmount
-		return unsubscribe;
+		return scrollAudioControl;
 	}, [scrollYProgress]);
 
-	//toggelt de zichtbaarheid van de afbeelding
-	const handleReveal = () => setImageVisible((prev) => !prev);
-
-	//toggelt het tonen/verbergen van het 3d model
-	const toggleModel = () => {
-		setShowModel((prev) => !prev);
-	};
+	useMotionValueEvent(scrollYProgress, "change", (v) => {
+		console.log("Scene 4 scrollYProgress", v);
+	});
 
 	return (
 		<section className="scene scene4" ref={sectionRef}>
@@ -70,7 +71,7 @@ const Scene4 = () => {
 				<div className="model-overlay" onClick={() => setOrbitActive(true)}>
 					<Canvas>
 						<OrbitControls enableDamping enabled={orbitActive} enableZoom={false} />
-						<Environment preset="forest" blur={100} />
+						<Environment preset="forest" />
 
 						<Model />
 					</Canvas>
@@ -97,4 +98,5 @@ function Model() {
 
 //preload het model zodat het sneller wordt geladen wanneer nodig
 useGLTF.preload(`${base}watch.glb`);
+
 export default Scene4;

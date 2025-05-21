@@ -7,34 +7,36 @@ const Scene3 = () => {
 	const sectionRef = useRef(null);
 	const audioRef = useRef<HTMLAudioElement>(null);
 
-	//size state: 'shrunk', 'normal', 'grown'
+	//scale value of alice image
 	const [size, setSize] = useState(0.3);
+	//track current size state: used to determine whether to grow or shrink
 	const [sizeStage, setSizeStage] = useState<"shrunk" | "normal" | "grown">("normal");
 
-	//scroll-based audio
+	//scroll control
 	const { scrollYProgress } = useScroll({
 		target: sectionRef,
 		offset: ["start end", "end start"],
 	});
 
+	//play/pause audio based on scrollYProgress
 	useEffect(() => {
-		const unsubscribe = scrollYProgress.on("change", (v) => {
+		const scrollAudioControl = scrollYProgress.on("change", (v) => {
 			const audio = audioRef.current;
 			if (!audio) return;
 
-			if (v >= 0.1 && v <= 0.75) {
+			if (v >= 0.25 && v <= 0.75) {
 				audio.play().catch(() => {});
 			} else {
 				audio.pause();
 			}
 		});
-		return unsubscribe;
+		return scrollAudioControl;
 	}, [scrollYProgress]);
 
 	useMotionValueEvent(scrollYProgress, "change", (v) => {
 		console.log("Scene 3 scrollYProgress", v);
 	});
-
+	//lower size and sizeStage to 0.1 and 'shrunk' unles sizeStage is 'grown' then set everything back to normal
 	const shrink = () => {
 		if (sizeStage === "normal") {
 			setSize(0.1);
@@ -44,7 +46,7 @@ const Scene3 = () => {
 			setSizeStage("normal");
 		}
 	};
-
+	//increase the size and sizestage to 0.5 and 'grown' unless sizeStage is 'shrunk' then set everything back to normal
 	const grow = () => {
 		if (sizeStage === "shrunk") {
 			setSize(0.3); // back to normal

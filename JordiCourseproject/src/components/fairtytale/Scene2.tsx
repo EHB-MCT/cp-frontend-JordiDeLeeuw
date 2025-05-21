@@ -13,25 +13,25 @@ const Scene2 = () => {
 		offset: ["start end", "end start"],
 	});
 
-	//floating animations
-	const rotate = useTransform(scrollYProgress, [0, 1], ["-100deg", "100deg"]);
+	//rotate items based on scroll position
+	const rotate = useTransform(scrollYProgress, [0, 1], ["-90deg", "90deg"]);
 
 	//play/pause audio based on scrollYProgress
 	useEffect(() => {
-		const unsubscribe = scrollYProgress.on("change", (v) => {
+		const scrollAudioControl = scrollYProgress.on("change", (v) => {
 			const audio = audioRef.current;
 			if (!audio) return;
 
-			if (v >= 0.05 && v <= 0.76) {
+			if (v >= 0.25 && v <= 0.76) {
 				audio.play().catch(() => {});
 			} else {
 				audio.pause();
 			}
 		});
 
-		return unsubscribe;
+		return scrollAudioControl;
 	}, [scrollYProgress]);
-
+	//log scrollYProgress changes
 	useMotionValueEvent(scrollYProgress, "change", (v) => {
 		console.log("Scene 2 scrollYProgress", v);
 	});

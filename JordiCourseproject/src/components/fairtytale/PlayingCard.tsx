@@ -1,10 +1,13 @@
-import React from "react";
 import "../../styles/fairytale/PlayingCard.scss";
 
+//define the props type for the PlayingCard component.
 type Props = {
+	//the suit symbol ♥, ♠, ♣, ♦  defaults to "♥"
 	suit?: string;
+	//the value of the card defaults to 5
 	value?: string;
-	children?: React.ReactNode;
+	//any custom content to be inserted into the center of the card
+	children?: string;
 };
 
 const PlayingCard = ({ suit = "♥", value = "5", children }: Props) => {

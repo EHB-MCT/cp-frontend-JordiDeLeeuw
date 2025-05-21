@@ -23,23 +23,23 @@ const Fairytale = () => {
 			/>
 			<img src={`${base}name.png`} alt="" className="name" />
 			<PlayingCard suit="♦" value="5">
-				Welkom in het verhaal van alice, een meisje dat haar dag begon in stilte, tot een haastig konijn haar wereld op z'n kop zette. ze stond op en volgde zonder aarzelen.
+				Welkom in het verhaal van Alice, een meisje dat haar dag begon in stilte, tot een haastig konijn haar wereld op z'n kop zette. Ze stond op en volgde zonder aarzelen.
 			</PlayingCard>
 			<Scene1 />
 			<PlayingCard suit="♠" value="7">
-				Ze liep en liep en liep, het konijn net binnen handbereik. maar net toen ze hem bijna te pakken had, verdween de grond onder haar.
+				Ze liep en liep en liep, het konijn was binnen handbereik. Net toen ze hem bijna te pakken had, verdween de grond onder haar voeten.
 			</PlayingCard>
 			<Scene2 />
 			<PlayingCard suit="♦" value="3">
-				Ze bleef maar vallen. niet snel, niet langzaam gewoon eindeloos. alsof de tijd zelf even vergat wat boven en onder was.
+				Ze bleef maar vallen, niet snel, niet langzaam, gewoon eindeloos. Het leek alsof de tijd zelf even vergat wat boven en onder was.
 			</PlayingCard>
 			<Scene3 />
 			<PlayingCard suit="♣" value="9">
-				Na eindelijk klein genoeg te zijn, paste alice door het kleine deurtje. Aan de andere kant… wachtte een nieuw gezicht dat ze nog nooit had gezien.
+				Na eindelijk klein genoeg te zijn, paste Alice door het kleine deurtje. Aan de andere kant… wachtte een nieuw gezicht dat ze nog nooit had gezien.
 			</PlayingCard>
 			<Scene4 />
 			<PlayingCard suit="♥" value="Q">
-				Na een bizar theefeest werd alice plots meegenomen. Voordat ze het wist, stond ze oog in oog met de hartenkoningin.
+				Na een bizar theefeest werd Alice plots meegenomen door kaartsoldaten. Voor ze het wist, stond ze oog in oog met de hartenkoningin.
 			</PlayingCard>
 			<Scene5 />
 		</div>
