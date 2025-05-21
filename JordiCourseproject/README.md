@@ -61,4 +61,4 @@ sources
 
 [Problem with scrollYProgress](https://www.framer.community/c/developers/problem-with-scrollyprogress#comment_wrapper_31225038) first used in scene1 on line 49-51
 [useGLTF Hook](https://sbcode.net/react-three-fiber/use-gltf/) used throughout scene4
-[](https://dev.to/ayka_code/creating-a-draggable-element-with-limits-and-smooth-animations-using-framer-motion-2cki) used in scene 5 line 11 and 47-51
+[Creating a draggable element with limits and smooth animations using Framer-Motion](https://dev.to/ayka_code/creating-a-draggable-element-with-limits-and-smooth-animations-using-framer-motion-2cki) used in scene 5 line 11 and 47-51
