@@ -1,10 +1,14 @@
+import { Info } from "../components/portal/Info";
+import { Carousel } from "../components/portal/Carousel";
+import "../styles/portal/About.scss";
+
 const About = () => {
 	return (
-		<div>
-			<h1>About Us</h1>
-			<p>Welcome to the About page!</p>
-		</div>
+		<>
+			<Info />
+			<Carousel />
+			<div className="spacer"> </div>
+		</>
 	);
 };
-
 export default About;

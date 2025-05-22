@@ -12,7 +12,7 @@ export const Stories = () => {
 			<h1>STORYS</h1>
 			<div className="list_grid">
 				{fairytales.map((fairy, i) => (
-					<Item image={fairy.imgThumbnail} name={fairy.nameStudent} theme={fairy.genre} fairytale={fairy.fairytale} id={fairy.id} />
+					<Item image={fairy.imgThumbnail} name={fairy.nameStudent} theme={fairy.genre} fairytale={fairy.fairytale} id={fairy.id} variant="list" />
 				))}
 			</div>
 		</div>

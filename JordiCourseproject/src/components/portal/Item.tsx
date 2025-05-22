@@ -14,7 +14,7 @@ export const Item = ({ image, name, theme, fairytale, variant, id }: ItemProps) 
 	const navigate = useNavigate();
 
 	return (
-		<div className={`item_div1 ${variant === "list" ? "carousel" : ""}`}>
+		<div className={`item_div1 ${variant === "list" ? "list" : ""}`}>
 			<img src={image} alt={name} />
 			<div className="item_div2">
 				<h1>{name}</h1>
