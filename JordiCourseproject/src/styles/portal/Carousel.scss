@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+
+.carousel_div1 {
+	width: 80%;
+	margin: 0 auto 5vh auto;
+	h1 {
+		font-family: "Bungee", sans-serif;
+		font-weight: normal;
+		font-size: 2.2vw;
+		margin-bottom: 3vh;
+		margin-left: 6vw;
+		color: #e51b31;
+		font-weight: bold;
+	}
+}
+
+.carousel_div2 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1vw;
+	position: relative;
+}
+
+.carousel_div3.embla {
+	overflow: hidden;
+	width: 80%;
+}
+
+.embla__container {
+	display: flex;
+	gap: 2.2%;
+}
+
+.embla__slide {
+	flex: 0 0 48%;
+}
+
+.carousel_div2 button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.carousel_div2 button img {
+	width: 3.5vw;
+	height: 3.5vw;
+	margin: 0 1vw;
+	object-fit: contain;
+}

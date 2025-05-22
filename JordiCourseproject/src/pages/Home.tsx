@@ -1,10 +1,10 @@
-import { Item } from "../components/portal/Item";
+import { Carousel } from "../components/portal/Carousel";
+import { Stories } from "../components/portal/Stories";
 
 const Home = () => {
 	return (
 		<div className="home_container">
-			<h1>home</h1>
-			<Item />
+			<Carousel />
 		</div>
 	);
 };
