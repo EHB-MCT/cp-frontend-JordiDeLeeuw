@@ -2,11 +2,11 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
 import { Item } from "../portal/Item";
 import "../../styles/portal/Carousel.scss";
-import { useFairytaleList } from "../../hooks/useFairytaleList";
+import { usePopularFairytales } from "../../hooks/usePopularFairytales";
 const base = import.meta.env.BASE_URL;
 
 export const Carousel = () => {
-	const { fairytales, isLoading } = useFairytaleList();
+	const { fairytales, isLoading } = usePopularFairytales();
 	console.log(fairytales);
 
 	const [emblaRef, emblaApi] = useEmblaCarousel({

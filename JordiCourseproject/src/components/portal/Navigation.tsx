@@ -1,17 +1,18 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import "../../styles/portal/Navigation.scss";
 const base = import.meta.env.BASE_URL;
 
 export const Navigation = () => {
 	const [isSearching, setIsSearching] = useState(false);
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-	const [activeTheme, setActiveTheme] = useState<string | null>(null);
+	const [searchTerm, setSearchTerm] = useState("");
+	const [searchParams, setSearchParams] = useSearchParams();
 	const inputRef = useRef<HTMLInputElement>(null);
 	const navigate = useNavigate();
+	const location = useLocation();
 
-	const themes = ["ROMANTIEK", "AVONTUUR", "GOED VS KWAAD", "MAGIE"];
-
+	const themes = ["AVONTUUR", "FANTASIE", "ROMANTIEK", "HORROR"];
 	//handle click outside to close search and dropdown
 	const handleClickOutside = (e: MouseEvent) => {
 		if (!(e.target as HTMLElement).closest(".dropdown_menu")) {
@@ -37,8 +38,16 @@ export const Navigation = () => {
 							type="text"
 							className="navigation_input"
 							placeholder="Wat zoek je ..."
+							value={searchTerm}
+							onChange={(e) => setSearchTerm(e.target.value)}
 							onKeyDown={(e) => {
 								if (e.key === "Enter") {
+									if (searchTerm.trim()) {
+										setSearchParams({ ...Object.fromEntries(searchParams), search: searchTerm.trim() });
+									} else {
+										searchParams.delete("search");
+										setSearchParams(searchParams);
+									}
 									setIsSearching(false);
 								}
 							}}
@@ -48,21 +57,34 @@ export const Navigation = () => {
 							<button
 								onClick={(e) => {
 									e.stopPropagation();
-									setIsDropdownOpen(!isDropdownOpen);
+									if (location.pathname === "/") {
+										//already on home: toggle dropdown
+										setIsDropdownOpen((prev) => !prev);
+									} else {
+										//navigate to home, don't open dropdown immediately
+										navigate("/");
+									}
 								}}
 								className="nav_button"
 							>
-								<h1>SPROOKJES</h1>
+								<h1 className={location.pathname === "/" ? "active" : ""}>SPROOKJES</h1>
 							</button>
-
 							{isDropdownOpen && (
 								<div className="dropdown_menu">
 									{themes.map((theme) => (
 										<h2
 											key={theme}
-											className={activeTheme === theme ? "selected-theme" : ""}
+											className={searchParams.get("theme") === theme ? "selected-theme" : ""}
 											onClick={() => {
-												setActiveTheme(theme);
+												const currentTheme = searchParams.get("theme");
+												if (currentTheme === theme) {
+													//if this theme is already active, remove it
+													searchParams.delete("theme");
+													setSearchParams(searchParams);
+												} else {
+													//otherwise, set it
+													setSearchParams({ theme });
+												}
 												setIsDropdownOpen(false);
 											}}
 										>
@@ -71,15 +93,23 @@ export const Navigation = () => {
 									))}
 								</div>
 							)}
-
-							<h1>MAKING OF</h1>
-							<h1>ABOUT US</h1>
+							<h1 onClick={() => navigate("/makingof/jordi-de-leeuw-alice-in-wonderland")} className={location.pathname.startsWith("/makingof") ? "active" : ""}>
+								MAKING OF
+							</h1>{" "}
+							<h1 onClick={() => navigate("/about")} className={location.pathname === "/about" ? "active" : ""}>
+								ABOUT US
+							</h1>{" "}
 						</>
 					)}
 				</div>
 
 				{/* magnifying glass for search*/}
-				<button onClick={() => setIsSearching(!isSearching)}>
+				<button onClick={() => {
+					setIsSearching((prev) => {
+						if (prev) setSearchTerm("");
+						return !prev;
+					});
+				}}>
 					<img src={`${base}magnefyingglass.png`} alt="magnefyingglass" />
 				</button>
 			</div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+const base = import.meta.env.BASE_URL;
 import { useNavigate } from "react-router-dom";
 import "../../styles/portal/MakingOf.scss";
 
@@ -35,7 +36,7 @@ export const Making = ({ story }) => {
 						</button>
 					</div>
 					<div className="making_div3_right">
-						<img src={story.imgThumbnail} alt="thumbnail square" />
+						<img src={story.imgThumbnail} className="thumbnail" alt="thumbnail square" />
 						<button
 							className="view-story"
 							onClick={() => {
@@ -46,7 +47,8 @@ export const Making = ({ story }) => {
 								}
 							}}
 						>
-							👁️ View Story
+							<img src={`${base}eye.png`} alt="eye icon" style={{ width: "1.6vw", height: "0.8vw" }} />
+							View Story
 						</button>
 					</div>
 				</div>
@@ -68,7 +70,7 @@ export const Making = ({ story }) => {
 			<div className="making_div5">
 				<h1>EXTRA INFORMATIE</h1>
 				<div className="making_div5_images">
-					{story.imgsExtra?.map((img, i) => (
+					{story.imgsExtra?.slice(0, 3).map((img, i) => (
 						<img key={i} src={img} alt={`extra img ${i + 1}`} />
 					))}
 				</div>

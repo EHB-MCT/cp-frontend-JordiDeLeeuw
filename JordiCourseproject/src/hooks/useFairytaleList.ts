@@ -3,6 +3,15 @@ import { useState, useEffect } from "react";
 export const useFairytaleList = () => {
 	const [fairytales, setFairytales] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const themeMap = {
+		avontuur: "AVONTUUR",
+		mythologie: "AVONTUUR",
+		magie: "FANTASIE",
+		fantasie: "FANTASIE",
+		romantiek: "ROMANTIEK",
+		dierenverhaal: "ROMANTIEK",
+		horror: "HORROR",
+	};
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -13,10 +22,10 @@ export const useFairytaleList = () => {
 
 				const json = await response.json();
 
-				// Optionally modify the data here if needed
 				const updated = json.map((fairy) => ({
 					...fairy,
-					viewed: false, // example of adding custom field
+					viewed: false,
+					theme: themeMap[fairy.genre.toLowerCase()] || "ONBEKEND",
 				}));
 
 				setFairytales(updated);
