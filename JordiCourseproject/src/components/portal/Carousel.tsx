@@ -7,6 +7,7 @@ const base = import.meta.env.BASE_URL;
 
 export const Carousel = () => {
 	const { fairytales, isLoading } = useFairytaleList();
+	console.log(fairytales);
 
 	const [emblaRef, emblaApi] = useEmblaCarousel({
 		loop: false,
@@ -23,7 +24,6 @@ export const Carousel = () => {
 		if (emblaApi) emblaApi.scrollNext();
 	}, [emblaApi]);
 
-	// ✅ Safe to return conditionally AFTER all hooks
 	if (isLoading) return <p>Loading...</p>;
 
 	return (
@@ -39,7 +39,7 @@ export const Carousel = () => {
 					<div className="embla__container">
 						{fairytales.map((fairy, i) => (
 							<div className="embla__slide" key={i}>
-								<Item image={fairy.imgThumbnail} name={fairy.nameStudent} theme={fairy.genre} fairytale={fairy.fairytale} />
+								<Item image={fairy.imgThumbnail} name={fairy.nameStudent} theme={fairy.genre} fairytale={fairy.fairytale} id={fairy.id} />
 							</div>
 						))}
 					</div>

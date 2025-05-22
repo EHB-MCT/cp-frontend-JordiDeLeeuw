@@ -1,20 +1,79 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../../styles/portal/MakingOf.scss";
 
-export const Making = () => {
+export const Making = ({ story }) => {
+	const [expanded, setExpanded] = useState(false);
+	const navigate = useNavigate();
+
 	return (
 		<div className="making_div1">
-			//title + banner + rest
+			{/* title */}
 			<h1>MAKING OF</h1>
+
+			{/* banner + story Info */}
 			<div className="making_div2">
-            <img src="" alt="bannerfoto" />
-            <div className="making_div2_smaller">
-                <h2> naam sprookje
-                </h2>
-                <h4> naam persoon</h4>
-            </div>
+				<img src={story.imgBanner} alt="bannerfoto" />
+				<div className="making_div2_smaller">
+					<h2>{story.fairytale}</h2>
+					<h4>{story.nameStudent}</h4>
+				</div>
 			</div>
-            <div className="making_div3">
-            //moet je nog doen
-            </div>
+
+			{/* story details + thumbnail */}
+			<div className="making_div_toggle">
+				<div className="making_div3" style={{ display: expanded ? "none" : "flex" }}>
+					<div className="making_div3_left">
+						<h5>Verhaal</h5>
+						<p>{story.description}</p>
+						<h5>Auteur</h5>
+						<p>
+							{story.nameStudent} <br /> {story.genre}
+						</p>
+						<button className="making_btn" onClick={() => setExpanded(true)}>
+							Lees meer
+						</button>
+					</div>
+					<div className="making_div3_right">
+						<img src={story.imgThumbnail} alt="thumbnail square" />
+						<button
+							className="view-story"
+							onClick={() => {
+								if (story.id === "jordi-de-leeuw-alice-in-wonderland") {
+									navigate("/fairytale");
+								} else {
+									window.open(story.fairytaleLink, "_blank");
+								}
+							}}
+						>
+							👁️ View Story
+						</button>
+					</div>
+				</div>
+				<div className="making_div4" style={{ display: expanded ? "block" : "none" }}>
+					<h5>Verhaal</h5>
+					<p>{story.description}</p>
+					<h5>Parallax effect</h5>
+					<p>{story.extraInfo || "Hier komt extra uitleg over het parallax effect."}</p>
+					<h5>Auteur</h5>
+					<p>
+						{story.nameStudent} <br /> {story.genre}
+					</p>
+					<button className="making_btn" onClick={() => setExpanded(false)}>
+						Lees minder
+					</button>
+				</div>
+			</div>
+			{/* extra information */}
+			<div className="making_div5">
+				<h1>EXTRA INFORMATIE</h1>
+				<div className="making_div5_images">
+					{story.imgsExtra?.map((img, i) => (
+						<img key={i} src={img} alt={`extra img ${i + 1}`} />
+					))}
+				</div>
+				<p>{story.description}</p>
+			</div>
 		</div>
 	);
 };

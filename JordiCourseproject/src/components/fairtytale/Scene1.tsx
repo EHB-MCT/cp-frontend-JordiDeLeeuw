@@ -19,7 +19,7 @@ const Scene1 = () => {
 	});
 
 	//move image1 from left to right as the user scrolls
-	const x1 = useTransform(scrollYProgress, [0, 1], ["-20vw", "83vw"]);
+	const x1 = useTransform(scrollYProgress, [0, 1], ["-20vw", "78vw"]);
 	//move image2 from a different start position to the same end point
 	const x2 = useTransform(scrollYProgress, [0, 1], ["10vw", "83vw"]);
 	//fade out both images between 75% and 83% scroll progress

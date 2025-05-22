@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+
+.making_div1 {
+	width: 70%;
+	margin: 0 auto;
+	font-family: "Helvetica Neue", sans-serif;
+	padding-bottom: 5vh;
+
+	h1 {
+		font-family: "Bungee", sans-serif;
+		color: #e51b31;
+		font-size: 2.2vw;
+		margin-bottom: 3vh;
+	}
+}
+
+.making_div2 {
+	position: relative;
+	margin-bottom: 3vh;
+	height: 20vw;
+	box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.1);
+	h2 {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.making_div2_smaller {
+	position: absolute;
+	bottom: 0vh;
+	left: -0.5vw;
+	background-color: #eef4ec;
+	padding: 1.5vh 1vw;
+	h2 {
+		color: #e51b31;
+		font-size: 2vw;
+		margin: 0;
+	}
+	h4 {
+		font-size: 1vw;
+		color: #333;
+		margin: 0;
+	}
+}
+.making_div3 {
+	display: flex;
+	justify-content: space-between;
+	margin: 5vh 0vh;
+
+	gap: 5%; // ensures space between left and right
+
+	.making_div3_left {
+		width: 50%;
+	}
+
+	.making_div3_right {
+		width: 40%;
+
+		img {
+			width: 100%;
+			aspect-ratio: 1 / 1;
+			object-fit: cover;
+			display: block;
+			box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.1);
+		}
+
+		.view-story {
+			margin: 1.5vh auto 0 auto;
+			background: none;
+			border: none;
+			font-size: 1vw;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			gap: 0.5vw;
+		}
+	}
+
+	h5 {
+		font-size: 1.2vw;
+		margin: 0;
+		font-weight: bold;
+	}
+
+	p {
+		font-size: 1.1vw;
+		color: #333;
+		line-height: 1.6;
+		margin-top: 0 !important;
+		margin-bottom: 2vh;
+	}
+
+	.making_btn {
+		background: black;
+		color: white;
+		padding: 1vw 3.5vw;
+		border: none;
+		border-radius: 2vw;
+		font-size: 1vw;
+		cursor: pointer;
+	}
+}
+.making_div4 {
+	width: 100%;
+	margin-bottom: 5vh;
+
+	h5 {
+		font-size: 1.2vw;
+		margin: 0% 0 0 0;
+		font-weight: bold;
+	}
+
+	h5:first-of-type {
+		margin-top: 5vh;
+	}
+	h5:not(:first-of-type) {
+		margin-top: 0;
+	}
+
+	p {
+		font-size: 1.1vw;
+		color: #333;
+		line-height: 1.6;
+		margin-top: 0vw !important;
+		margin-bottom: 2vh;
+	}
+
+	.making_btn {
+		background: black;
+		color: white;
+		padding: 1vh 2.5vw;
+		border: none;
+		border-radius: 2vw;
+		font-size: 1vw;
+		cursor: pointer;
+	}
+}
+
+.making_div5 {
+	margin-top: 4vh;
+
+	h1 {
+		font-family: "Bungee", sans-serif;
+		font-size: 2vw;
+		color: #e51b31;
+		margin-bottom: 2vh;
+	}
+
+	.making_div5_images {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-bottom: 2vh;
+	}
+
+	img {
+		width: 22vw;
+		box-shadow: 0vh 1vh 1vh rgba(0, 0, 0, 0.1);
+	}
+
+	p {
+		font-size: 0.95vw;
+		margin-top: 2vh;
+		color: #444;
+		line-height: 1.6;
+	}
+}

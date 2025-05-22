@@ -5,9 +5,15 @@
 	border-radius: 1.8vw;
 	overflow: hidden;
 	box-shadow: 0.5vh 0.5vh 0.4vh rgba(0, 0, 0, 0.1);
-	width: 30vw;
+	width: 34vw;
 	height: auto;
 	margin-bottom: 1vh;
+	&.list {
+		width: 16vw;
+		img {
+			height: 16vw;
+		}
+	}
 	img {
 		width: 86%;
 		margin: 7% 7%;

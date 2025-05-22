@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Scene1 from "../components/fairtytale/Scene1";
 import Scene2 from "../components/fairtytale/Scene2";
 import Scene3 from "../components/fairtytale/Scene3";
@@ -11,6 +12,9 @@ const base = import.meta.env.BASE_URL;
 
 const Fairytale = () => {
 	const { scrollYProgress } = useScroll();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<div className="fairytale">
