@@ -3,7 +3,9 @@ const base = import.meta.env.BASE_URL;
 import "../../styles/portal/Info.scss";
 
 export const Info = () => {
+	//initialize navigation function
 	const navigate = useNavigate();
+	//render the info section with title, description, navigation button, and image
 	return (
 		<div className="info_div1">
 			{/* title, paragraph, and button */}

@@ -3,15 +3,26 @@ import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import "../../styles/portal/Navigation.scss";
 const base = import.meta.env.BASE_URL;
 
+//define and export the Navigation component
+//this component is responsible for the navigation bar at the top of the page
+//it contains the logo, the search bar, and the navigation buttons
+//it also handles the dropdown menu for the themes and the search functionality
 export const Navigation = () => {
+	//state for serach bar toggle
 	const [isSearching, setIsSearching] = useState(false);
+	//state for dropdown menu toggle
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+	//state for search term
 	const [searchTerm, setSearchTerm] = useState("");
+	//this is used to get the current search params from the url
 	const [searchParams, setSearchParams] = useSearchParams();
+	//ref to control focus on search input element
 	const inputRef = useRef<HTMLInputElement>(null);
+	//initialize navigation function and location
 	const navigate = useNavigate();
 	const location = useLocation();
 
+	//predefined theme categories
 	const themes = ["AVONTUUR", "FANTASIE", "ROMANTIEK", "HORROR"];
 	//handle click outside to close search and dropdown
 	const handleClickOutside = (e: MouseEvent) => {
@@ -19,14 +30,14 @@ export const Navigation = () => {
 			setIsDropdownOpen(false);
 		}
 	};
-
+	//attach outside click event listener to the document
 	useEffect(() => {
 		document.addEventListener("mousedown", handleClickOutside);
 		return () => {
 			document.removeEventListener("mousedown", handleClickOutside);
 		};
 	}, []);
-
+	//render the navigation bar with logo, search bar, and navigation buttons
 	return (
 		<div className="navigation_div1">
 			<img src={`${base}Logo.png`} alt="logo" onClick={() => navigate("/")} />
@@ -54,6 +65,7 @@ export const Navigation = () => {
 						/>
 					) : (
 						<>
+							{/* sprookjes button - toggles dropdown if already on home, else navigates */}
 							<button
 								onClick={(e) => {
 									e.stopPropagation();
@@ -69,6 +81,7 @@ export const Navigation = () => {
 							>
 								<h1 className={location.pathname === "/" ? "active" : ""}>SPROOKJES</h1>
 							</button>
+							{/* theme dropdown */}
 							{isDropdownOpen && (
 								<div className="dropdown_menu">
 									{themes.map((theme) => (
@@ -104,12 +117,14 @@ export const Navigation = () => {
 				</div>
 
 				{/* magnifying glass for search*/}
-				<button onClick={() => {
-					setIsSearching((prev) => {
-						if (prev) setSearchTerm("");
-						return !prev;
-					});
-				}}>
+				<button
+					onClick={() => {
+						setIsSearching((prev) => {
+							if (prev) setSearchTerm("");
+							return !prev;
+						});
+					}}
+				>
 					<img src={`${base}magnefyingglass.png`} alt="magnefyingglass" />
 				</button>
 			</div>

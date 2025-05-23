@@ -9,11 +9,13 @@ type ItemProps = {
 	id: string;
 	variant: "list" | "carousel";
 };
-
+//
 export const Item = ({ image, name, theme, fairytale, variant, id }: ItemProps) => {
+	//initialize navigation function
 	const navigate = useNavigate();
-
+	//render the item layout with image, text info, and navigation button
 	return (
+		//if the variant is list, add the class "list" to the item_div1 div otherwise use the default class
 		<div className={`item_div1 ${variant === "list" ? "list" : ""}`}>
 			<img src={image} alt={name} />
 			<div className="item_div2">
@@ -29,3 +31,5 @@ export const Item = ({ image, name, theme, fairytale, variant, id }: ItemProps) 
 		</div>
 	);
 };
+//export the props type so it can be reused in other components
+export type { ItemProps };
