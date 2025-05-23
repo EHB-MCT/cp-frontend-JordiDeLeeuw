@@ -3,16 +3,21 @@ import { useFairytaleList } from "../hooks/useFairytaleList";
 import { Making } from "../components/portal/Making";
 
 const MakingOf = () => {
-	//get story id from url
-	const { id } = useParams();
-	console.log(id);
-	//get fairytales from the custom hook useFairytaleList
+	const { id } = useParams<{ id: string }>();
+	console.log("🧭 URL id param:", id);
+	// if id is undefined, show an error
+	if (!id) return <p>Missing story ID in URL.</p>;
 	const { fairytales, isLoading } = useFairytaleList();
 	if (isLoading) return <p>Loading...</p>;
-	//find the story with the given id
-	//treat s as an object with an id string so TypeScript stops complaining
+	console.log(
+		"🎯 Available IDs:",
+		fairytales.map((f) => (f as { id: string }).id)
+	);
 	const story = fairytales.find((s) => (s as { id: string }).id === id);
-	if (!story) return <p>Story not found.</p>;
+	if (!story) {
+		console.warn("⚠️ No matching story for:", id);
+		return <p>Story not found.</p>;
+	}
 	return (
 		<div className="home_container">
 			<Making story={story} />
