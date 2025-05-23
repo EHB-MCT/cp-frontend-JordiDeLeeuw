@@ -1,9 +1,8 @@
-import { useParams } from "react-router-dom";
 import { useFairytaleList } from "../hooks/useFairytaleList";
 import { Making } from "../components/portal/Making";
 
 const MakingOf = () => {
-	const { id } = useParams();
+	const id = new URL(window.location.href).pathname.split("/").pop();
 	console.log("🧭 URL id param:", id);
 	// if id is undefined, show an error
 	if (!id) return <p>Missing story ID in URL.</p>;
