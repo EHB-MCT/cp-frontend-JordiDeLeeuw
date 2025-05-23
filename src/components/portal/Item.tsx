@@ -23,7 +23,7 @@ export const Item = ({ image, name, theme, fairytale, variant, id }: ItemProps) 
 				<h2>{fairytale}</h2>
 				<div className="header_div3">
 					<h3>{theme}</h3>
-					<button onClick={() => navigate(`makingof/${id}`)}>
+					<button onClick={() => navigate(`/makingof/${id}`)}>
 						<img src={`${base}smallarrow.png`} alt="arrow" />
 					</button>
 				</div>
