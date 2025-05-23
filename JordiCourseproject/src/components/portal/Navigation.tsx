@@ -49,16 +49,21 @@ export const Navigation = () => {
 							type="text"
 							className="navigation_input"
 							placeholder="Wat zoek je ..."
-							value={searchTerm}
-							onChange={(e) => setSearchTerm(e.target.value)}
+							value={searchTerm} //bind the input value to searchTerm state
+							onChange={(e) => setSearchTerm(e.target.value)} //update searchTerm as the user types
 							onKeyDown={(e) => {
 								if (e.key === "Enter") {
+									//when user presses enter:
 									if (searchTerm.trim()) {
-										setSearchParams({ ...Object.fromEntries(searchParams), search: searchTerm.trim() });
+										//if there's a non-empty search term, set it in the url
+										searchParams.set("search", searchTerm.trim());
+										setSearchParams(searchParams);
 									} else {
+										//if input is empty, remove search param from url
 										searchParams.delete("search");
 										setSearchParams(searchParams);
 									}
+									//close the search input
 									setIsSearching(false);
 								}
 							}}
@@ -108,10 +113,10 @@ export const Navigation = () => {
 							)}
 							<h1 onClick={() => navigate("/makingof/jordi-de-leeuw-alice-in-wonderland")} className={location.pathname.startsWith("/makingof") ? "active" : ""}>
 								MAKING OF
-							</h1>{" "}
+							</h1>
 							<h1 onClick={() => navigate("/about")} className={location.pathname === "/about" ? "active" : ""}>
 								ABOUT US
-							</h1>{" "}
+							</h1>
 						</>
 					)}
 				</div>

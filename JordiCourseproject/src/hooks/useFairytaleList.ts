@@ -5,8 +5,8 @@ export const useFairytaleList = () => {
 	const [fairytales, setFairytales] = useState([]);
 	//state to hold the loading state
 	const [isLoading, setIsLoading] = useState(true);
-	//map raw genres to borader themes
-	const themeMap = {
+	//map raw genres to broader themes
+	const themeMap: Record<string, string> = {
 		avontuur: "AVONTUUR",
 		mythologie: "AVONTUUR",
 		magie: "FANTASIE",
@@ -26,7 +26,7 @@ export const useFairytaleList = () => {
 				//parse the response as JSON
 				const json = await response.json();
 				//to each fairytale, add a theme property based on the genre
-				const updated = json.map((fairy) => ({
+				const updated = json.map((fairy: { genre: string; }) => ({
 					...fairy,
 					theme: themeMap[fairy.genre.toLowerCase()] || "ONBEKEND",
 				}));

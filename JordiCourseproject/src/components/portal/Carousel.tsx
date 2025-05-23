@@ -18,6 +18,7 @@ export const Carousel = () => {
 	//fucntion to scroll to the previous slide
 	const scrollPrev = useCallback(() => {
 		if (emblaApi) emblaApi.scrollPrev();
+		//emblaApi is the depencency array, so the function will be called when the emblaApi changes
 	}, [emblaApi]);
 	//function to scroll to the next slide
 	const scrollNext = useCallback(() => {
@@ -41,8 +42,8 @@ export const Carousel = () => {
 						{/* map through the fairytales and create an Item component for each one */}
 						{/* the key is set to the index of the fairytale in the array */}
 						{/* the image, name, theme, fairytale, and id are passed as props to the Item component */}
-						{fairytales.map((fairy: { imgThumbnail: string; nameStudent: string; genre: string; fairytale: string; id: string }, i: Key ) => (
-							<div className="embla__slide" key={i}>
+						{fairytales.map((fairy: { imgThumbnail: string; nameStudent: string; genre: string; fairytale: string; id: string }) => (
+							<div className="embla__slide" key={fairy.id as Key}>
 								<Item image={fairy.imgThumbnail} name={fairy.nameStudent} theme={fairy.genre} fairytale={fairy.fairytale} id={fairy.id} variant={"carousel"} />
 							</div>
 						))}

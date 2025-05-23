@@ -33,11 +33,13 @@
 	.floating-item {
 		position: absolute;
 		width: 90vw;
-		left: -3vw;
-		top: -10vh;
+		left: 0vw;
+		top: 0vh;
 		pointer-events: none;
-
 		will-change: transform;
+		img {
+			width: 100%;
+		}
 	}
 
 	.item1 {

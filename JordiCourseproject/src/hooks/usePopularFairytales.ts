@@ -1,4 +1,17 @@
 import { useFairytaleList } from "./useFairytaleList";
+//fisher-yates shuffle
+function shuffle(array: any[]) {
+	let i = array.length,
+		j,
+		temp;
+	while (--i > 0) {
+		j = Math.floor(Math.random() * (i + 1));
+		temp = array[j];
+		array[j] = array[i];
+		array[i] = temp;
+	}
+	return array;
+}
 
 export const usePopularFairytales = () => {
 	//this hook is used to get a list of popular fairytales.
@@ -18,12 +31,11 @@ export const usePopularFairytales = () => {
 	//if not, shuffle the fairytales and store them in local storage
 	const cached = localStorage.getItem(key);
 	if (cached) {
-		const ids = JSON.parse(cached);
-		sorted = ids.map((id: string) => fairytales.find((f) => f.id === id)).filter(Boolean);
+		sorted = JSON.parse(cached);
 	} else {
-		sorted = [...fairytales].sort(() => 0.5 - Math.random()); // shuffle
-		const ids = sorted.map((f) => f.id);
-		localStorage.setItem(key, JSON.stringify(ids));
+		//used ... to create a copy of the fairytales array
+		sorted = shuffle([...fairytales]); //copy then shuffle
+		localStorage.setItem(key, JSON.stringify(sorted));
 	}
 
 	return { fairytales: sorted, isLoading: false };

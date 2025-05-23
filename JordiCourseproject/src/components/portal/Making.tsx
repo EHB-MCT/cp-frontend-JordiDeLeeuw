@@ -89,7 +89,7 @@ export const Making = ({ story }: { story: Story }) => {
 			<div className="making_div5">
 				<h1>EXTRA INFORMATIE</h1>
 				<div className="making_div5_images">
-					//if the story has extra images, show the first 3
+					{/* if the story has extra images, show the first 3 */}
 					{story.imgsExtra?.slice(0, 3).map((img, i) => (
 						<img key={i} src={img} alt={`extra img ${i + 1}`} />
 					))}
