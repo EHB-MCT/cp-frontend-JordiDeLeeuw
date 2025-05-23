@@ -7,6 +7,14 @@ const MakingOf = () => {
 	// if id is undefined, show an error
 	if (!id) return <p>Missing story ID in URL.</p>;
 	const { fairytales, isLoading } = useFairytaleList();
+
+	console.log("🌐 Full path:", window.location.pathname);
+	console.log("🆔 Extracted ID:", id);
+	console.log(
+		"🎯 All fairytale IDs:",
+		fairytales.map((f) => f.id)
+	);
+
 	// wait until we have both fairytales and a valid id
 	if (isLoading || !id) return <p>Loading...</p>;
 
