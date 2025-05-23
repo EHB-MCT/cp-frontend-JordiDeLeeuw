@@ -1,16 +1,12 @@
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useFairytaleList } from "../hooks/useFairytaleList";
 import { Making } from "../components/portal/Making";
 
 const MakingOf = () => {
+	const { id } = useParams<{ id: string }>();
 	const { fairytales, isLoading } = useFairytaleList();
 	const [story, setStory] = useState<any | null>(null);
-	const [id, setId] = useState<string | null>(null);
-
-	useEffect(() => {
-		const urlId = new URL(window.location.href).pathname.split("/").pop();
-		setId(urlId || null);
-	}, []);
 
 	useEffect(() => {
 		if (!id || fairytales.length === 0) return;
