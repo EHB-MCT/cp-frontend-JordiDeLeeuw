@@ -56,7 +56,7 @@ export const Making = ({ story }: { story: Story }) => {
 							className="view-story"
 							onClick={() => {
 								if (story.id === "jordi-de-leeuw-alice-in-wonderland") {
-									navigate("/fairytale");
+									window.open(story.fairytaleLink);
 								} else {
 									window.open(story.fairytaleLink, "_blank");
 								}
