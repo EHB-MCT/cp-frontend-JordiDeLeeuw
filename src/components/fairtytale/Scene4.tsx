@@ -26,6 +26,9 @@ const Scene4 = () => {
 		target: sectionRef,
 		offset: ["start end", "end start"],
 	});
+	//toggle the visibiltiy of the image
+	const handleReveal = () => setImageVisible((prev) => !prev);
+
 	//toggle the visibility of the 3d model
 	const toggleModel = () => {
 		setShowModel((prev) => !prev);
@@ -57,7 +60,7 @@ const Scene4 = () => {
 
 				<div className="content">
 					{/* afbeelding die langzaam zichtbaar wordt na klik */}
-					<img src={`${base}cat.png`} alt="Reveal" className="interactive-image fade-image" onMouseEnter={() => setImageVisible(true)} onMouseLeave={() => setImageVisible(false)} style={{ opacity: imageVisible ? 1 : 0.2 }} />
+					<img src={`${base}cat.png`} alt="Reveal" className="interactive-image fade-image" style={{ opacity: imageVisible ? 1 : 0.2 }} onClick={handleReveal} />
 					{/* knop om het 3d model te tonen of verbergen */}
 					<img src={`${base}watch.png`} alt="Show 3D" className="interactive-image model-trigger" onClick={toggleModel} />{" "}
 				</div>
