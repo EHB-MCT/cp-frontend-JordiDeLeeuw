@@ -1,6 +1,6 @@
 import { useState } from "react";
 const base = import.meta.env.BASE_URL;
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import "../../styles/portal/MakingOf.scss";
 
 type Story = {
