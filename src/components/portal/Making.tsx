@@ -20,7 +20,7 @@ type Story = {
 export const Making = ({ story }: { story: Story }) => {
 	//initialize state for expanded view and navigation function
 	const [expanded, setExpanded] = useState(false);
-	const navigate = useNavigate();
+	//const navigate = useNavigate();
 	//render the making of layout with toggle sections, navigation logic and extra visuals
 	return (
 		<div className="making_div1">
