@@ -11,7 +11,7 @@ import { Navigation } from "./components/portal/Navigation";
 
 function App() {
 	return (
-		<Router basename="/cp-frontend-JordiDeLeeuw/">
+		<Router>
 			<Navigation />
 
 			<Routes>
