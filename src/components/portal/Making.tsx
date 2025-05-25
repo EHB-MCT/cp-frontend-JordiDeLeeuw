@@ -45,7 +45,7 @@ export const Making = ({ story }: { story: Story }) => {
 						<p>{story.description}</p>
 						<h5>Auteur</h5>
 						<p>
-							{story.fairytaleAuthor} <br /> {story.genre}
+							{story.fairytaleAuthor}
 						</p>
 						{/* button to expand the view aka show div4 */}
 						<button className="making_btn" onClick={() => setExpanded(true)}>
@@ -81,7 +81,7 @@ export const Making = ({ story }: { story: Story }) => {
 					<p>{story.parallaxInfo || "Hier komt extra uitleg over het parallax effect."}</p>
 					<h5>Auteur</h5>
 					<p>
-						{story.fairytaleAuthor} <br /> {story.genre}
+						{story.fairytaleAuthor}
 					</p>
 					<button className="making_btn" onClick={() => setExpanded(false)}>
 						Lees minder
