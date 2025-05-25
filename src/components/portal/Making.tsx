@@ -7,6 +7,9 @@ type Story = {
 	id: string;
 	imgBanner: string;
 	imgThumbnail: string;
+	fairytaleAuthor: string;
+	parallaxInfo: string;
+	imgsInfo: string;
 	fairytale: string;
 	nameStudent: string;
 	genre: string;
@@ -42,7 +45,7 @@ export const Making = ({ story }: { story: Story }) => {
 						<p>{story.description}</p>
 						<h5>Auteur</h5>
 						<p>
-							{story.nameStudent} <br /> {story.genre}
+							{story.fairytaleAuthor} <br /> {story.genre}
 						</p>
 						{/* button to expand the view aka show div4 */}
 						<button className="making_btn" onClick={() => setExpanded(true)}>
@@ -75,10 +78,10 @@ export const Making = ({ story }: { story: Story }) => {
 					<h5>Verhaal</h5>
 					<p>{story.description}</p>
 					<h5>Parallax effect</h5>
-					<p>{story.extraInfo || "Hier komt extra uitleg over het parallax effect."}</p>
+					<p>{story.parallaxInfo || "Hier komt extra uitleg over het parallax effect."}</p>
 					<h5>Auteur</h5>
 					<p>
-						{story.nameStudent} <br /> {story.genre}
+						{story.fairytaleAuthor} <br /> {story.genre}
 					</p>
 					<button className="making_btn" onClick={() => setExpanded(false)}>
 						Lees minder
@@ -94,7 +97,7 @@ export const Making = ({ story }: { story: Story }) => {
 						<img key={i} src={img} alt={`extra img ${i + 1}`} />
 					))}
 				</div>
-				<p>{story.description}</p>
+				<p>{story.imgsInfo}</p>
 			</div>
 		</div>
 	);

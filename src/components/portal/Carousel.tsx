@@ -36,7 +36,7 @@ export const Carousel = () => {
 				<button onClick={scrollPrev} className="carousel-arrow">
 					<img src={`${base}circlearrow.png`} alt="left arrow" style={{ transform: "scaleX(-1)" }} />
 				</button>
-				
+
 				<div className="carousel_div3 embla" ref={emblaRef}>
 					<div className="embla__container">
 						{/* map through the fairytales and create an Item component for each one */}
