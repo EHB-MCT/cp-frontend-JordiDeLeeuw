@@ -1,6 +1,6 @@
 import { useState } from "react";
 const base = import.meta.env.BASE_URL;
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../../styles/portal/MakingOf.scss";
 
 type Story = {
@@ -20,7 +20,7 @@ type Story = {
 export const Making = ({ story }: { story: Story }) => {
 	//initialize state for expanded view and navigation function
 	const [expanded, setExpanded] = useState(false);
-	//const navigate = useNavigate();
+	const navigate = useNavigate();
 	//render the making of layout with toggle sections, navigation logic and extra visuals
 	return (
 		<div className="making_div1">
@@ -56,7 +56,7 @@ export const Making = ({ story }: { story: Story }) => {
 							className="view-story"
 							onClick={() => {
 								if (story.id === "jordi-de-leeuw-alice-in-wonderland") {
-									window.open(story.fairytaleLink);
+									navigate("/fairytale");
 								} else {
 									window.open(story.fairytaleLink, "_blank");
 								}
